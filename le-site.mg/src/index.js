@@ -7,7 +7,9 @@ import { Provider } from "react-redux";
 import { store } from "./Store";
 import { StrictMode } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Accueil from "./Containers/AccueilContainer";
+import Accueil from "./Containers/HomeContainerFolder/AccueilContainer";
+import { Login } from "./Components/LoginFolder/LoginComponet";
+import { AlaUne } from "./Containers/AlaUneContainerFolder/AlaUneContainer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +19,8 @@ root.render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="/" element={<Accueil />} />
+            <Route path="/ALaUne" element={<AlaUne />} />
+            <Route path="/login" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
-import Accueil from "./Containers/AccueilContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { leSiteAPI } from "./Url/leSipe-api";
 import { setAccueil } from "./Store/accueil/accueil-slice";
 import { useEffect } from "react";
-import logoBe from "../src/Assets/AccueilImage/bien-etre.png";
-import logo from "../src/Assets/AccueilImage/formations.jpg";
+import { Header } from "./Containers/HeaderContainerFolder/HeaderContainer";
+import s from "./app.module.css";
+import { Footer } from "./Containers/FooterContainerFolder/FooterContainer";
 
 function App() {
   var dispatch = useDispatch();
@@ -21,9 +21,16 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {/* <Outlet /> */}
-      <img src={logo} />
+    <div className={s.container}>
+      <div className={s.header}>
+        <Header />
+      </div>
+      <div className={s.bodyContainer}>
+        <Outlet />
+      </div>
+      <div className={s.footer}>
+        <Footer />
+      </div>
     </div>
   );
 }
