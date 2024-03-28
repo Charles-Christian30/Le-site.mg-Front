@@ -1,8 +1,8 @@
 
-const AccueilComponent = ({accueil, imageAccueil}) =>{
-    console.log(accueil)
+const AccueilComponent = ({accueil, imageAccueil,onClickItem}) =>{
+   
     return(
-        <div>
+        <div onClick={() =>onClickItem(accueil.titre)}>
             <h3>{accueil.titre}</h3>
             <img src={imageAccueil} alt="logo" />
         </div>

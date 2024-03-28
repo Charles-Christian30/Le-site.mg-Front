@@ -7,18 +7,31 @@ import logoHotelRestEspace from "../../Assets/AccueilImage/hotels-restaurants-es
 import logoShopping from "../../Assets/AccueilImage/shopping.jpg";
 import s from "./style.module.css";
 import { Formations, BienEtre, Shopping, HotelRestaurantEspace } from "../../Constantes/AccueilImagesConstantes";
-
+import { useNavigate } from "react-router-dom";
 
 
 const Accueil = () => {
   const selector = useSelector((store) => store.ACCUEIL.accueilList);
+  const navigate = useNavigate();
+
   const [accueilData, setAccueilData] = useState("");
 
+  function navigateItem(titre){
+    switch(titre){
+      case titre:
+        navigate(`${titre}`);
+        break;
+      default :
+        navigate("/");
+        break;
+    }
+  }
+
   useEffect(() => {
+
     setAccueilData(selector);
   }, []);
-
-
+ 
   return (
     <div className={s.container}>
       {accueilData &&
@@ -34,7 +47,7 @@ const Accueil = () => {
             imageUrl = logoShopping;
           }
 
-          return <AccueilComponent accueil={data} imageAccueil={imageUrl} />;
+          return <AccueilComponent accueil={data} imageAccueil={imageUrl} onClickItem={navigateItem}/>;
         })}
     </div>
   );

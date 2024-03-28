@@ -10,6 +10,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Accueil from "./Containers/HomeContainerFolder/AccueilContainer";
 import { Login } from "./Components/LoginFolder/LoginComponet";
 import { AlaUne } from "./Containers/AlaUneContainerFolder/AlaUneContainer";
+import { FormationContainer } from "./Containers/FormationContainerFolder/FormationContainer";
+import { ShoppingContainer } from "./Containers/ShoppingContainerFolder/ShoppingContainer";
+import { BienEtreContainer } from "./Containers/BienEtreContainerFolder/BienEtreContainer";
+import { HREContainer } from "./Containers/HotelsRestaurantsEspacesContainerFolder/HREContainer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,7 +24,14 @@ root.render(
           <Route path="/" element={<App />}>
             <Route path="/" element={<Accueil />} />
             <Route path="/ALaUne" element={<AlaUne />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/Formations" element={<FormationContainer />} />
+            <Route path="/Shopping" element={<ShoppingContainer />} />
+            <Route path="/Bien-être" element={<BienEtreContainer />} />
+            <Route
+              path="/Hôtels-Restaurants-Espaces"
+              element={<HREContainer />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>
